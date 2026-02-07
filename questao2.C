@@ -155,6 +155,11 @@ int main() {
 
     fclose(file);
 
+    printf("\n%s:\n", pais);
+    printf("Total de atletas: %d\n", masculino + feminino);
+    printf("Atletas masculinos: %d\n", masculino);
+    printf("Atletas femininos: %d\n", feminino);
+
     return 0;
 }
 

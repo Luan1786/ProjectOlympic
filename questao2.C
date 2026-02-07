@@ -96,4 +96,27 @@ void extrairCampos(char *linha, char *sex, char *noc, int *athlete_id) {
         *athlete_id = atoi(campo);
     }
 }
+int main() {
+     //abre o arquivo bios.csv para leitura, se nao conseguir abrir exibe uma mensagem de erro e encerra o programa
+    FILE *file = fopen("bios.csv", "r");
+    if (!file) {
+        printf("Erro ao abrir bios.csv\n");
+        return 1;
+    }
+    //solicita ao usuario o nome do pais para o qual deseja contar os atletas, armazena a resposta em uma string e remove espaços em branco do inicio e do fim da string
+    char pais[50];
+    printf("Digite o nome do pais (em ingles, ex: Japan, Brazil, France): ");
+    fflush(stdout);
+    fgets(pais, 50, stdin);
+    trim(pais);
+    //variaveis para armazenar a linha lida do arquivo, os ids dos atletas ja contados, o total de atletas unicos e as contagens de atletas masculinos e femininos
+    char line[MAX_LINE];
+    int atletas[MAX_ATHLETES];
+    int totalAtletas = 0;
+
+    int masculino = 0;
+    int feminino = 0;
+
+    
+    fgets(line, MAX_LINE, file);
 
